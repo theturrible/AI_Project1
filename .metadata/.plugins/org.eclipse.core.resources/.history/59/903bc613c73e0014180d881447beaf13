@@ -1,0 +1,16 @@
+
+public class Man {
+	private int weight; 
+	private int height;
+	
+	Man(int h, int w){
+		this.weight = w; 
+		this.height = h;
+	}
+	
+	public int getHeight(){
+		return height;
+		
+	}
+
+}

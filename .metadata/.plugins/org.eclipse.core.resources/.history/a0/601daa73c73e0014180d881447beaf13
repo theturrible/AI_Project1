@@ -1,0 +1,22 @@
+
+public class human {
+	private int weight; 
+	private int height;
+	private String gender = "";
+	
+	human(int h, int w, String gender){
+		this.weight = w; 
+		this.height = h;
+	}
+	public int getHeight(){
+		return height;
+	}
+
+	public int getWeight(){
+		return height;
+	}
+	public String toString(){
+		return "Height: " + height + " Weight: " + weight;
+	}
+
+}

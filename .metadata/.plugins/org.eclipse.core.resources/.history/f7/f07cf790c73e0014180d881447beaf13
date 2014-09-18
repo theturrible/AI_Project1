@@ -1,0 +1,24 @@
+
+public class Man {
+	private int weight; 
+	private int height;
+	private String gender = "Male";
+	
+	Man(int h, int w){
+		this.weight = w; 
+		this.height = h;
+	}
+	
+	public int getHeight(){
+		return height;
+	}
+
+	public int getWeight(){
+		return height;
+	}
+	public String toString(){
+		return "Height: " + height + " Weight: " + weight;
+	}
+
+
+}

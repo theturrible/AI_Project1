@@ -1,0 +1,11 @@
+
+public class Man {
+	private int weight; 
+	private int height;
+	
+	Man(int w, int h){
+		this.weight = w; 
+		this.height = h;
+	}
+
+}
