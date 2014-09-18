@@ -42,21 +42,27 @@ public class main {
 				women.add(new Human((int) femaleHeight.sample(), (int) maleWeight.sample(), "female"));	
 			}	
 			System.out.println("MEN:");
-			for(int i = 0; i < men.size(); i++){
+			for(int i = 0; i < 10; i++){
 				System.out.println(men.get(i).toString());
 			}
 			System.out.println("WOMEN:");
-			for(int i = 0; i < women.size(); i++){
+			for(int i = 0; i < 10; i++){
 				System.out.println(women.get(i).toString());
 		       
-				
 			}
-			//create desired and actual output for the two arrays of output.
+			
 			dOutputHuman = new int[men.size()+women.size()];
 			outputHuman = new int[men.size()+women.size()];
 			
-			//get both arrays into one.. 
-			createInputArray(men, women);
+			
+			for(int i =0; i < (men.size()); i++){
+				humans.add(men.get(i));
+				dOutputHuman[i] = -1;
+			}
+			for(int i =0; i < (women.size()); i++){
+				humans.add(women.get(i));
+				dOutputHuman[i+men.size()] = 1;
+			}
 			
 			
 			System.out.println("Size of men: " + men.size() + " with item at index 0: " + men.get(0).toString());
@@ -71,17 +77,6 @@ public class main {
 			
 			
 			//neuron();
-		}
-		
-		public static void createInputArray(ArrayList<Human> men, ArrayList<Human> women){
-			for(int i =0; i < (men.size()); i++){
-				humans.add(men.get(i));
-				dOutputHuman[i] = -1;
-			}
-			for(int i =0; i < (women.size()); i++){
-				humans.add(women.get(i));
-				dOutputHuman[i+men.size()] = 1;
-			}
 		}
 		
 		

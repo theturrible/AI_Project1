@@ -56,7 +56,7 @@ public class main {
 			outputHuman = new int[men.size()+women.size()];
 			
 			//get both arrays into one.. 
-			createInputArray(men, women);
+
 			
 			
 			System.out.println("Size of men: " + men.size() + " with item at index 0: " + men.get(0).toString());
@@ -82,6 +82,10 @@ public class main {
 				humans.add(women.get(i));
 				dOutputHuman[i+men.size()] = 1;
 			}
+			
+			
+			
+			
 		}
 		
 		

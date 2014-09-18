@@ -56,7 +56,7 @@ public class main {
 			outputHuman = new int[men.size()+women.size()];
 			
 			//get both arrays into one.. 
-			createInputArray(men, women);
+
 			
 			
 			System.out.println("Size of men: " + men.size() + " with item at index 0: " + men.get(0).toString());
@@ -73,15 +73,9 @@ public class main {
 			//neuron();
 		}
 		
-		public static void createInputArray(ArrayList<Human> men, ArrayList<Human> women){
-			for(int i =0; i < (men.size()); i++){
-				humans.add(men.get(i));
-				dOutputHuman[i] = -1;
-			}
-			for(int i =0; i < (women.size()); i++){
-				humans.add(women.get(i));
-				dOutputHuman[i+men.size()] = 1;
-			}
+		public static ArrayList<Human> createInputArray(ArrayList<Human> men, ArrayList<Human> women){
+			
+			
 		}
 		
 		
