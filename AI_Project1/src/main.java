@@ -19,7 +19,7 @@ public class main {
 	public static int numberPatterns = 2; 
 	public static int numberOfAugInputs = 3; 
 	public static double learningConstant = 0.5;
-	public static double[] weights = {1,1,70};
+	public static double[] weights = {1,1,1};
 	public static int[][] pattern = {{1,2,1},{2,1,1}};
 	public static int[] dOutput = {-1,1};
 	public static int[] output = new int[numberPatterns]; 
@@ -39,8 +39,8 @@ public class main {
 		ArrayList<Human> men = new ArrayList<Human>();
 		ArrayList<Human> women = new ArrayList<Human>();
 			
-		femaleHeight = new NormalDistribution(50, 2);
-		maleHeight = new NormalDistribution(80, 2);
+		femaleHeight = new NormalDistribution(63, 2);
+		maleHeight = new NormalDistribution(70, 3);
 		
 		femaleWeight = new NormalDistribution(150, 3);
 		maleWeight = new NormalDistribution(190, 4);
@@ -209,7 +209,8 @@ public class main {
 	
 	public static void printStuff(int currIt, int patternNum, double net, double err, double learn, double[] weights){
 		//System.out.println("Pattern:" + " ["+pattern[patternNum][0] +","+ pattern[patternNum][1]+ "," + pattern[patternNum][2] + "]");
-		System.out.println("itr=" + currIt + "\t p= " + patternNum + "\t net=" + net + "\t err= " + err + "\t lrn= "+ learn + "\t weights:" + "[" + weights[0] + "," + weights[1] + " " + weights[2] + "]") ;
+		System.out.println("itr=" + currIt + "\t p= " + patternNum + "\t net=" + net + "\t err= " + err + 
+							"\t lrn= "+ learn + "\t weights:" + "[" + weights[0] + "," + weights[1] + " " + weights[2] + "]") ;
 		
 	}
 }
