@@ -9,17 +9,16 @@ public class main {
 		private static NormalDistribution maleHeight;
 		private static NormalDistribution femaleWeight;
 		private static NormalDistribution maleWeight;
-		public static int iteration = 600; 
+		public static int iteration = 25; 
 		public static int numberPatterns = 2; 
 		public static int numberOfAugInputs = 3; 
 		public static double learningConstant = 0.5;
-		public static double[] weights = {1,1,57};
+		public static double[] weights = {1,1,70};
 		public static int[][] pattern = {{1,2,1},{2,1,1}};
 		public static int[] dOutput = {-1,1};
 		public static int[] output = new int[numberPatterns]; 
 		public static ArrayList<Human> humans = new ArrayList<Human>();
-		
-		
+
 		public static int[] dOutputHuman;
 		public static int[] outputHuman; 
 		
@@ -28,18 +27,18 @@ public class main {
 			ArrayList<Human> men = new ArrayList<Human>();
 			ArrayList<Human> women = new ArrayList<Human>();
 				
-			femaleHeight = new NormalDistribution(50, 1);
-			maleHeight = new NormalDistribution(80, 1);
+			femaleHeight = new NormalDistribution(50, 2);
+			maleHeight = new NormalDistribution(80, 2);
 			
-			femaleWeight = new NormalDistribution(120, 1);
-			maleWeight = new NormalDistribution(200, 1);
+			femaleWeight = new NormalDistribution(150, 3);
+			maleWeight = new NormalDistribution(190, 4);
 			
 			
 			System.out.println("Deviation for male" + maleHeight.getStandardDeviation());
 			
 			for(int i = 0; i < 10; i++){
 				men.add(new Human((int) maleHeight.sample(), (int) maleWeight.sample(), "male"));
-				women.add(new Human((int) femaleHeight.sample(), (int) maleWeight.sample(), "female"));	
+				women.add(new Human((int) femaleHeight.sample(), (int) femaleWeight.sample(), "female"));	
 			}	
 			System.out.println("MEN:");
 			for(int i = 0; i < men.size(); i++){
