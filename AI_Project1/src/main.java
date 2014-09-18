@@ -35,7 +35,7 @@ public class main {
 	public static boolean DEBUG = false;
 	public static boolean DEBUG2 = false;
 	
-	public static void main(String args[]){
+	public static void main(String args[]) throws IOException{
 		ArrayList<Human> men = new ArrayList<Human>();
 		ArrayList<Human> women = new ArrayList<Human>();
 			
@@ -45,19 +45,6 @@ public class main {
 		femaleWeight = new NormalDistribution(150, 3);
 		maleWeight = new NormalDistribution(190, 4);
 		
-		
-<<<<<<< HEAD
-		public static void main(String args[]) throws IOException{
-			
-			ArrayList<Human> men = new ArrayList<Human>();
-			ArrayList<Human> women = new ArrayList<Human>();
-				
-			femaleHeight = new NormalDistribution(50, 2);
-			maleHeight = new NormalDistribution(80, 2);
-			
-			femaleWeight = new NormalDistribution(150, 3);
-			maleWeight = new NormalDistribution(190, 4);
-			
 			
 			if(DEBUG){
 				System.out.println("Deviation for female: \t Height: " + femaleHeight.getStandardDeviation() + "\t Weight: " + femaleWeight.getStandardDeviation());
@@ -99,48 +86,6 @@ public class main {
 			out.close();
 			
 			//neuron();
-=======
-		if(DEBUG){
-			System.out.println("Deviation for female: \t Height: " + femaleHeight.getStandardDeviation() + "\t Weight: " + femaleWeight.getStandardDeviation());
-			System.out.println("Deviation for male: \t Height: " + maleHeight.getStandardDeviation() + "\t Weight: " + maleWeight.getStandardDeviation());
->>>>>>> origin/master
-		}
-		
-		
-		for(int i = 0; i < 10; i++){
-			men.add(new Human((int) maleHeight.sample(), (int) maleWeight.sample(), "male"));
-			women.add(new Human((int) femaleHeight.sample(), (int) femaleWeight.sample(), "female"));	
-		}	
-		System.out.println("\t DATASET: \n------------------------ ");
-		System.out.println("\t\t MEN:");
-		for(int i = 0; i < men.size(); i++){
-			System.out.println(men.get(i).toString());
-		}
-		System.out.println("\t\t WOMEN:");
-		for(int i = 0; i < women.size(); i++){
-			System.out.println(women.get(i).toString());
-		}
-		System.out.println("------------------------\n\t DATASET END");
-		//create desired and actual output for the two arrays of output.
-		dOutputHuman = new int[men.size()+women.size()];
-		outputHuman = new int[men.size()+women.size()];
-		
-		//get both arrays into one.. 
-		createInputArray(men, women);
-		
-		System.out.println();
-		if(DEBUG)System.out.println("Size of men: " + men.size() + " with item at index 0: " + men.get(0).toString());
-		if(DEBUG)System.out.println("Size of women: " + women.size() + " with item at index 0: " + women.get(0).toString());
-		//System.out.println("Size of humans: " + humans.size() + " with item at index 0: " + humans.get(0).toString() + " and women " + humans.get(10).toString());
-		
-		
-		
-		decideOnArrayList();
-		
-		
-		
-		
-		//neuron();
 	}
 	
 	public static void createInputArray(ArrayList<Human> men, ArrayList<Human> women){
