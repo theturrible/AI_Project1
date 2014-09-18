@@ -1,3 +1,6 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -27,7 +30,7 @@ public class main {
 		public static boolean DEBUG = true;
 		public static boolean DEBUG2 = false;
 		
-		public static void main(String args[]){
+		public static void main(String args[]) throws IOException{
 			
 			ArrayList<Human> men = new ArrayList<Human>();
 			ArrayList<Human> women = new ArrayList<Human>();
@@ -55,9 +58,7 @@ public class main {
 			}
 			System.out.println("\t\t WOMEN:");
 			for(int i = 0; i < women.size(); i++){
-				System.out.println(women.get(i).toString());
-		       
-				
+				System.out.println(women.get(i).toString());	
 			}
 			//create desired and actual output for the two arrays of output.
 			dOutputHuman = new int[men.size()+women.size()];
@@ -66,17 +67,19 @@ public class main {
 			//get both arrays into one.. 
 			createInputArray(men, women);
 			
+			PrintWriter out = new PrintWriter(new FileWriter("data_test.txt"));
+			for(int i=0; i < humans.size(); i++){
+				out.println(humans.get(i).getHeight() + "," + humans.get(i).getWeight() + "," + humans.get(i).getIntGender());
+			}
+			
 			System.out.println();
 			if(DEBUG)System.out.println("Size of men: " + men.size() + " with item at index 0: " + men.get(0).toString());
 			if(DEBUG)System.out.println("Size of women: " + women.size() + " with item at index 0: " + women.get(0).toString());
 			//System.out.println("Size of humans: " + humans.size() + " with item at index 0: " + humans.get(0).toString() + " and women " + humans.get(10).toString());
 			
-			
-			
 			decideOnArrayList();
 			
-			
-			
+			out.close();
 			
 			//neuron();
 		}

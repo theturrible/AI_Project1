@@ -21,6 +21,16 @@ public class Human {
 	public int getWeight(){
 		return height;
 	}
+	
+	public int getIntGender(){
+		if(gender.equals("male")){
+			return 0;
+		}else if(gender.equals("female")){
+			return 1;
+		}else{
+			return -1;
+		}
+	}
 	public String getGender(){
 		return gender;
 	}
