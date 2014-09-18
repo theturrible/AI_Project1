@@ -22,6 +22,11 @@ public class main {
 		public static int[] dOutputHuman;
 		public static int[] outputHuman; 
 		
+		
+		//DEBUG SWITCH
+		public static boolean DEBUG = true;
+		public static boolean DEBUG2 = false;
+		
 		public static void main(String args[]){
 			
 			ArrayList<Human> men = new ArrayList<Human>();
@@ -34,17 +39,21 @@ public class main {
 			maleWeight = new NormalDistribution(190, 4);
 			
 			
-			System.out.println("Deviation for male" + maleHeight.getStandardDeviation());
+			if(DEBUG){
+				System.out.println("Deviation for female: \t Height: " + femaleHeight.getStandardDeviation() + "\t Weight: " + femaleWeight.getStandardDeviation());
+				System.out.println("Deviation for male: \t Height: " + maleHeight.getStandardDeviation() + "\t Weight: " + maleWeight.getStandardDeviation());
+			}
+			
 			
 			for(int i = 0; i < 10; i++){
 				men.add(new Human((int) maleHeight.sample(), (int) maleWeight.sample(), "male"));
 				women.add(new Human((int) femaleHeight.sample(), (int) femaleWeight.sample(), "female"));	
 			}	
-			System.out.println("MEN:");
+			System.out.println("\t\t MEN:");
 			for(int i = 0; i < men.size(); i++){
 				System.out.println(men.get(i).toString());
 			}
-			System.out.println("WOMEN:");
+			System.out.println("\t\t WOMEN:");
 			for(int i = 0; i < women.size(); i++){
 				System.out.println(women.get(i).toString());
 		       
@@ -57,9 +66,9 @@ public class main {
 			//get both arrays into one.. 
 			createInputArray(men, women);
 			
-			
-			System.out.println("Size of men: " + men.size() + " with item at index 0: " + men.get(0).toString());
-			System.out.println("Size of women: " + women.size() + " with item at index 0: " + women.get(0).toString());
+			System.out.println();
+			if(DEBUG)System.out.println("Size of men: " + men.size() + " with item at index 0: " + men.get(0).toString());
+			if(DEBUG)System.out.println("Size of women: " + women.size() + " with item at index 0: " + women.get(0).toString());
 			//System.out.println("Size of humans: " + humans.size() + " with item at index 0: " + humans.get(0).toString() + " and women " + humans.get(10).toString());
 			
 			
@@ -85,13 +94,13 @@ public class main {
 		
 		
 		public static void decideOnArrayList(){
-			System.out.println(" weights:" + "[" + weights[0] + "," + weights[1] + " " + weights[2] + "]");
+			if(DEBUG)System.out.println(" weights:" + "[" + weights[0] + "," + weights[1] + " " + weights[2] + "]");
 			for(int i = 0; i < iteration; i++){
 				for(int j = 0; j < humans.size(); j++){
 					double net = 0.0;
 					for(int k = 0; k < 3; k++){
-						//System.out.println("net" + net);
-						//System.out.println("humans.get(j).getArray()[k]" + humans.get(j).getArray()[k]);
+						if(DEBUG2)System.out.println("net" + net);
+						if(DEBUG2)System.out.println("humans.get(j).getArray()[k]" + humans.get(j).getArray()[k]);
 						net = RoundTo2Decimals(net + weights[k]*humans.get(j).getArray()[k]);
 					}
 					outputHuman[j] = sign(net);
@@ -104,8 +113,6 @@ public class main {
 				}
 			}			
 		}
-		
-
 		
 		public static void neuron(){
 			for(int i = 0; i < iteration; i++){
@@ -140,7 +147,7 @@ public class main {
 		
 		public static void printStuff(int currIt, int patternNum, double net, double err, double learn, double[] weights){
 			//System.out.println("Pattern:" + " ["+pattern[patternNum][0] +","+ pattern[patternNum][1]+ "," + pattern[patternNum][2] + "]");
-			System.out.println("iteration=" + currIt + " p= " + patternNum + " net=" + net + " err= " + err + " lrn= "+ learn + " weights:" + "[" + weights[0] + "," + weights[1] + " " + weights[2] + "]") ;
+			System.out.println("itr=" + currIt + "\t p= " + patternNum + "\t net=" + net + "\t err= " + err + "\t lrn= "+ learn + "\t weights:" + "[" + weights[0] + "," + weights[1] + " " + weights[2] + "]") ;
 			
 		}
 }
