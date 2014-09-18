@@ -5,10 +5,13 @@ import org.apache.commons.math3.distribution.NormalDistribution;
 
 public class main {
 	
+		//data generators
 		private static NormalDistribution femaleHeight;
 		private static NormalDistribution maleHeight;
 		private static NormalDistribution femaleWeight;
 		private static NormalDistribution maleWeight;
+		
+		//algorithm setup.
 		public static int iteration = 25; 
 		public static int numberPatterns = 2; 
 		public static int numberOfAugInputs = 3; 
@@ -18,13 +21,15 @@ public class main {
 		public static int[] dOutput = {-1,1};
 		public static int[] output = new int[numberPatterns]; 
 		public static ArrayList<Human> humans = new ArrayList<Human>();
-
+		
+		
+		//outputs for the human array.
 		public static int[] dOutputHuman;
 		public static int[] outputHuman; 
 		
 		
 		//DEBUG SWITCH
-		public static boolean DEBUG = true;
+		public static boolean DEBUG = false;
 		public static boolean DEBUG2 = false;
 		
 		public static void main(String args[]){
@@ -49,6 +54,7 @@ public class main {
 				men.add(new Human((int) maleHeight.sample(), (int) maleWeight.sample(), "male"));
 				women.add(new Human((int) femaleHeight.sample(), (int) femaleWeight.sample(), "female"));	
 			}	
+			System.out.println("\t DATASET: \n------------------------ ");
 			System.out.println("\t\t MEN:");
 			for(int i = 0; i < men.size(); i++){
 				System.out.println(men.get(i).toString());
@@ -56,9 +62,8 @@ public class main {
 			System.out.println("\t\t WOMEN:");
 			for(int i = 0; i < women.size(); i++){
 				System.out.println(women.get(i).toString());
-		       
-				
 			}
+			System.out.println("------------------------\n\t DATASET END");
 			//create desired and actual output for the two arrays of output.
 			dOutputHuman = new int[men.size()+women.size()];
 			outputHuman = new int[men.size()+women.size()];
@@ -94,7 +99,7 @@ public class main {
 		
 		
 		public static void decideOnArrayList(){
-			if(DEBUG)System.out.println(" weights:" + "[" + weights[0] + "," + weights[1] + " " + weights[2] + "]");
+			if(DEBUG)System.out.println("\nInitial weights:" + "[" + weights[0] + "," + weights[1] + " " + weights[2] + "]\n");
 			for(int i = 0; i < iteration; i++){
 				for(int j = 0; j < humans.size(); j++){
 					double net = 0.0;
